@@ -1,9 +1,11 @@
 from selenium import webdriver
 import pytest
+import time
 
 link = "https://findsport.dev/"
 login = "9671679902"
 password = "123456"
+exp_login = "test2 master"
 exp_error_empty = "Пожалуйста, введите e-mail или телефон, пароль"
 
 
@@ -24,7 +26,13 @@ class TestMainPage():
         browser.find_element_by_id("username").send_keys(login)
         browser.find_element_by_id("password").send_keys(password)
         browser.find_element_by_id("submit").click()
-
+        time.sleep(1)
+        username = browser.find_element_by_css_selector("#header > section > div > div:nth-child(2) > div > a")
+        act_login = username.text
+        if act_login == exp_login:
+            print("\nAuthorization success")
+        else:
+            print("\nAuthorization failed")
 
     def test_empty_form(self, browser):
         browser.get(link)
