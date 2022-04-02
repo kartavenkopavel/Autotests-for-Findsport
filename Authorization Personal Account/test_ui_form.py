@@ -1,6 +1,4 @@
 from selenium.webdriver.common.by import By
-from selenium import webdriver
-import pytest
 
 link = "https://findsport.dev/"
 exp_placeholder_text = "E-mail или телефон"
