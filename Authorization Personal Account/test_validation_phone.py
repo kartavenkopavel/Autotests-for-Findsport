@@ -11,15 +11,6 @@ exp_message_phone = "Номер телефона должен состоять �
 exp_message_phone2 = "Номер телефона не является мобильным."
 
 
-@pytest.fixture(scope='function')
-def browser():
-    print("\nstart browser for test")
-    browser = webdriver.Chrome()
-    yield browser
-    print("\nbrowser quit")
-    browser.quit()
-
-
 class TestMainPage():
 
     @pytest.mark.parametrize('username', invalid_phone_list)
@@ -34,8 +25,3 @@ class TestMainPage():
                                                                   "div.l-form__row.-js-error-summary.error.summary")
 
         assert exp_message_phone or exp_message_phone2 or exp_message_email in act_error_message.text
-
-
-
-
-

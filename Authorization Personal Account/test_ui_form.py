@@ -7,15 +7,6 @@ exp_placeholder_text = "E-mail или телефон"
 exp_placeholder_text2 = "Введите e-mail или телефон"
 
 
-@pytest.fixture()
-def browser():
-    print("\nstart browser for test")
-    browser = webdriver.Chrome()
-    yield browser
-    print("\nquit browser")
-    browser.quit()
-
-
 class TestMainPage():
     def test_ui_placeholder_empty(self, browser):
         browser.get(link)

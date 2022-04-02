@@ -1,6 +1,4 @@
-from selenium import webdriver
 from selenium.webdriver.common.by import By
-import pytest
 import time
 
 link = "https://findsport.dev/"
@@ -10,15 +8,6 @@ password = "123456"
 exp_login = "test2 master"
 exp_error_empty = "Пожалуйста, введите e-mail или телефон, пароль"
 exp_error_not_found = "С указанным телефоном не зарегистрирован ни один пользователь"
-
-
-@pytest.fixture()
-def browser():
-    print("\nstart browser for test")
-    browser = webdriver.Chrome()
-    yield browser
-    print("\nquit browser")
-    browser.quit()
 
 
 class TestMainPage():
